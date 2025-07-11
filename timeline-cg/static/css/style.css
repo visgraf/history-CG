@@ -1,0 +1,244 @@
+/* Estilos da Timeline */
+
+a {
+    color: inherit;   
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0d6efd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 10px;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-left {
+    left: 0;
+}
+
+.timeline-right {
+    left: 50%;
+}
+
+.timeline-left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 52px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline-right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 52px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.timeline-right::after {
+    left: -16px;
+}
+
+.timeline-left::after {
+    right: -16px;
+}
+
+.timeline-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;     
+    overflow: hidden;         
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #54585f;
+    z-index: 1;
+}
+
+.timeline-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.icon-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .icon-text {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    user-select: none;
+    background: transparent;
+    border-radius: 4px;
+  }
+  
+
+
+.timeline-left .timeline-icon {
+    right: -71px;
+}
+
+.timeline-right .timeline-icon {
+    left: -71px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    
+    .timeline-left::after, .timeline-right::after {
+        left: 15px;
+    }
+    
+    .timeline-right {
+        left: 0%;
+    }
+    
+    .timeline-left .timeline-icon, 
+    .timeline-right .timeline-icon {
+        left: -69px;
+    }
+}
+
+/* Fundo preto e texto claro */
+body {
+    background-color: #000 !important;
+    color: #fff !important;
+    min-height: 100vh;
+}
+
+/* Ajustes para a timeline no tema escuro */
+.timeline-content {
+    background-color: #1a1a1a !important;
+    color: #fff !important;
+    border: 1px solid #333;
+}
+
+.timeline::after {
+    background-color: #6c757d;
+}
+
+.timeline-icon {
+    background-color: #6c757d;
+    color: #54585f00;
+}
+
+/* Ajuste para as setas da timeline */
+.timeline-left::before {
+    border-color: transparent #1a1a1a transparent #1a1a1a;
+}
+
+.timeline-right::before {
+    border-color: transparent #1a1a1a transparent transparent;
+}
+
+/* Ajustes para textos */
+h1, h2, h3, h4, h5, h6 {
+    color: #f8f9fa !important;
+}
+
+.text-muted {
+    color: #adb5bd !important;
+}
+
+.fixed-caption {
+    height: 100px; /* ou 80px, teste valores maiores */
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.timeline-carousel .carousel-item {
+    height: auto /*500px; /*TO DO se for manter um tamanho fixo devemos tratar as imagens */
+}
+
+.timeline-carousel .carousel-item img,
+.timeline-carousel .carousel-item iframe {
+    max-height: 500px;
+    height: auto; 
+    width: 100%;
+    max-width: auto /*560px*/;
+    margin: 0 auto;
+    display: block;
+}
+
+.timeline-carousel .carousel-item iframe {
+    height: 250px; /* altura fixa pro iframe */
+}
+
+.timeline .timeline-container:last-child {
+  margin-bottom: 80px;
+}
+
+.timeline-future {
+  position: relative;
+  z-index: 1;           /* botar o botão na frente da linha */
+  margin-top: 60px;     /* distancia do último evento */
+}
+
+.timeline-future .btn {
+  background-color: #1a1a1a; /* mesmo fundo da timeline-content */
+}
